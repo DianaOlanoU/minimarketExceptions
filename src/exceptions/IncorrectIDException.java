@@ -6,8 +6,8 @@ public class IncorrectIDException extends Exception{
     private String incorrectTI;
     
     public IncorrectIDException(String id){
-    super("El documento de identifacion no coincide con el requerido en el minimercado");
-    incorrectTI = id;
+        super("El documento de identifacion no coincide con el requerido en el minimercado: "+id.toUpperCase());
+        incorrectTI = id;
     }
 
     public String getIncorrectTI() {

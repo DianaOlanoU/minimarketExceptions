@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Minimarket {
     private List<Person> people;
+    private int count;
 
     public Minimarket() {
         people = new ArrayList<>();
@@ -20,18 +21,24 @@ public class Minimarket {
         char penultimateNumber=searchPenultimateNumber(IDNumber);
         
         if(idType.equalsIgnoreCase("TI")){
+            count++;
+            totalAmounOfPeople(count);
             throw new IncorrectIDException(idType);
         }
         else if(durrentDay%2==0 &&  penultimateNumber%2!=0 || durrentDay%2!=0 &&  penultimateNumber%2==0){
+            count++;
+            totalAmounOfPeople(count);
             throw new IncorrectPenultimateNumberException(penultimateNumber);
         }
         else if(durrentDay%2==0 && penultimateNumber%2==0){
-            Person person = new Person(idType,IDNumber);
-            people.add(person);
+            people.add(new Person(idType,IDNumber));
+            count++;
+            totalAmounOfPeople(count);
         }
         else if(durrentDay%2!=0 && penultimateNumber%2!=0){
-            Person person = new Person(idType,IDNumber);
-            people.add(person);
+            people.add(new Person(idType,IDNumber));
+            count++;
+            totalAmounOfPeople(count);
         }
     }
     
@@ -43,7 +50,15 @@ public class Minimarket {
         return finalNumber ;
     }
     
-    public List<Person> getPeople(){
-        return people;
+    public int totalAmounOfPeople(int count){
+        int total = 0;
+        if(count>0){
+          total++;
+        }
+        return total;
+    }
+
+    public int getCount() {
+        return count;
     }
 }

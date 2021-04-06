@@ -7,14 +7,14 @@ import model.Minimarket;
 
 public class Main {
     public static Scanner lector = new Scanner(System.in);
-    
     public static void main(String[] args) {
-        System.out.print("_____________________________________INGRESAR DATOS AL MINI MERCADO________________________________________________________\n");
+        
         Minimarket information= new Minimarket();
         
         boolean finalMenu=false;
         
         while(!finalMenu){
+            System.out.print("_____________________________________INGRESAR DATOS AL MINI MERCADO________________________________________________________\n");
             System.out.print("\n¿Cual opcion desea escoger?"+
                      "\n"+
                      "\nEscriba 1, si quiere registrar el ingreso de una persona"+
@@ -44,8 +44,8 @@ public class Main {
             
             case 2:{
                System.out.print("\n");
-               System.out.print("_____________________________________DESPEDIR EMPLEADO DEL CLUB___________________________________________________\n");
-               //fireEmployee(information);
+               System.out.print("_____________________________________CANTIDAD TOTAL DE PERSONAS___________________________________________________\n");
+               peopleCounter(information);
                System.out.print("\n");
                break;
             }
@@ -54,7 +54,6 @@ public class Main {
     }
     
     public static void accessPersonToTheMinimarket(Minimarket minimarketInformation){
-        
         System.out.print("\n");
         System.out.print("¿Que tipo de identificacion tiene la persona?"+
                      "\n"+
@@ -72,11 +71,16 @@ public class Main {
         try{
             minimarketInformation.addPersonToMinimarket(personIDNumber, IDOption);
             System.out.println("La persona fue ingresada exitosamente al mini mercado.");
-        }catch(IncorrectIDException npe){
-            System.err.println(npe.getMessage());
-        }catch(IncorrectPenultimateNumberException npe){
+        }catch(IncorrectIDException | IncorrectPenultimateNumberException npe){
             System.err.println(npe.getMessage());
         }
     }
+    
+    public static void peopleCounter(Minimarket minimarketInformation){
+        System.out.print("\n");
+        System.out.print("La cantidad total de personas que han intentado ingresar y las que ingresaron son: "+minimarketInformation.getCount());
+        System.out.print("\n");
+    }
+    
     
 }

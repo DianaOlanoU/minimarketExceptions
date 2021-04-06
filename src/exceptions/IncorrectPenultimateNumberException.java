@@ -3,14 +3,14 @@ package exceptions;
 
 public class IncorrectPenultimateNumberException extends Exception {
     
-    private int incorrectNumber;
+    private char incorrectNumber;
     
-    public IncorrectPenultimateNumberException(int number){
-    super("El penultimo numero de su identificacion no coincide con el mes");
-    incorrectNumber = number;
+    public IncorrectPenultimateNumberException(char number){
+        super("El penultimo numero de su identificacion no coincide con el mes: "+number);
+        incorrectNumber = number;
     }
 
-    public int getIncorrectNumber() {
+    public char getIncorrectNumber() {
         return incorrectNumber;
     }
 }
