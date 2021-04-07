@@ -69,8 +69,7 @@ public class Main {
         String personIDNumber=lector.nextLine();
         
         try{
-            minimarketInformation.addPersonToMinimarket(personIDNumber, IDOption);
-            System.out.println("La persona fue ingresada exitosamente al mini mercado.");
+            System.out.println(minimarketInformation.addPersonToMinimarket(personIDNumber, IDOption));
         }catch(IncorrectIDException | IncorrectPenultimateNumberException npe){
             System.err.println(npe.getMessage());
         }

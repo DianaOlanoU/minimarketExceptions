@@ -15,31 +15,51 @@ public class Minimarket {
         people = new ArrayList<>();
     }
     
-    public void addPersonToMinimarket(String IDNumber, String idType) throws IncorrectIDException,IncorrectPenultimateNumberException{
+    public Person findPersonID(String id){
+        Person foundPersonID=null;
+        boolean finish=true;
+        for(int i=0;i<people.size() && finish;i++){
+            if(people.get(i).getIDNumber().equals(id)){
+                finish=false;
+                foundPersonID=people.get(i);
+            } 
+        }
+        return foundPersonID;
+    }
     
-        int durrentDay =LocalDate.now().getDayOfMonth();
+    public String addPersonToMinimarket(String IDNumber, String idType) throws IncorrectIDException,IncorrectPenultimateNumberException{
+        int currentDay =LocalDate.now().getDayOfMonth();
         char penultimateNumber=searchPenultimateNumber(IDNumber);
+        Person foundPersonID=findPersonID(IDNumber);
+        String message="\nLa persona fue ingresada exitosamente al mini mercado.";
         
         if(idType.equalsIgnoreCase("TI")){
             count++;
             totalAmounOfPeople(count);
             throw new IncorrectIDException(idType);
         }
-        else if(durrentDay%2==0 &&  penultimateNumber%2!=0 || durrentDay%2!=0 &&  penultimateNumber%2==0){
+        else if(currentDay%2==0 &&  penultimateNumber%2!=0 || currentDay%2!=0 &&  penultimateNumber%2==0){
             count++;
             totalAmounOfPeople(count);
             throw new IncorrectPenultimateNumberException(penultimateNumber);
         }
-        else if(durrentDay%2==0 && penultimateNumber%2==0){
-            people.add(new Person(idType,IDNumber));
-            count++;
-            totalAmounOfPeople(count);
+        
+        if(foundPersonID==null){
+            if(currentDay%2==0 && penultimateNumber%2==0){
+                people.add(new Person(IDNumber,idType));
+                count++;
+                totalAmounOfPeople(count);
+            }
+            else if(currentDay%2!=0 && penultimateNumber%2!=0){
+                people.add(new Person(IDNumber,idType));
+                count++;
+                totalAmounOfPeople(count);
+            }
         }
-        else if(durrentDay%2!=0 && penultimateNumber%2!=0){
-            people.add(new Person(idType,IDNumber));
-            count++;
-            totalAmounOfPeople(count);
+        else{
+            message="\nLo siento, la persona que intenta ingresar ya existe en el mini mercado";
         }
+        return message;
     }
     
     public static char searchPenultimateNumber(String IDnumber) {
