@@ -7,13 +7,13 @@ import static org.junit.Assert.*;
 
 public class MinimarketTest {
     
-    public void MinimarketTestScenary(){
+    public void minimarketTestScenary(){
     }
 
     @Test
     public void testAddPersonToMinimarket1() throws Exception {
-        MinimarketTestScenary();
-        String IDNumber = "14955967895";
+        minimarketTestScenary();
+        String IDNumber = "14955967885";
         String idType = "CE";
         Minimarket instance = new Minimarket();
         String expResult = "La persona fue ingresada exitosamente al mini mercado.";
@@ -26,7 +26,7 @@ public class MinimarketTest {
     
     @Test
     public void testAddPersonToMinimarket2() throws Exception {
-        MinimarketTestScenary();
+        minimarketTestScenary();
         String IDNumber = "997414562";
         String idType = "TI";
         Minimarket instance = new Minimarket();
@@ -40,8 +40,8 @@ public class MinimarketTest {
     
     @Test
     public void testAddPersonToMinimarket3() throws Exception {
-        MinimarketTestScenary();
-        String IDNumber = "2335785";
+        minimarketTestScenary();
+        String IDNumber = "2335795";
         String idType = "PP";
         Minimarket instance = new Minimarket();
         try{
