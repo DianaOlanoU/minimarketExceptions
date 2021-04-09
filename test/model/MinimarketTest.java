@@ -2,6 +2,7 @@ package model;
 
 import exceptions.IncorrectIDException;
 import exceptions.IncorrectPenultimateNumberException;
+import java.time.LocalDate;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,11 +14,19 @@ public class MinimarketTest {
     @Test
     public void testAddPersonToMinimarket1() throws Exception {
         minimarketTestScenary();
-        String IDNumber = "14955967885";
-        String idType = "CE";
         Minimarket instance = new Minimarket();
+        int currentDay =LocalDate.now().getDayOfMonth();
+        String idType = "CE";
+        String result ="";
         String expResult = "La persona fue ingresada exitosamente al mini mercado.";
-        String result = instance.addPersonToMinimarket(IDNumber, idType);
+        if(currentDay%2==0){
+            String IDNumber = "14955967885";
+            result = instance.addPersonToMinimarket(IDNumber, idType);
+        }
+        else if(currentDay%2!=0){
+            String IDNumber = "14955967895";
+            result = instance.addPersonToMinimarket(IDNumber, idType);
+        }
         assertEquals(expResult, result);
         if(!result.equals(expResult)){
             fail("No salto el mensaje esperado.");
@@ -41,11 +50,18 @@ public class MinimarketTest {
     @Test
     public void testAddPersonToMinimarket3() throws Exception {
         minimarketTestScenary();
-        String IDNumber = "2335795";
-        String idType = "PP";
         Minimarket instance = new Minimarket();
+        int currentDay =LocalDate.now().getDayOfMonth();
+        String idType = "PP";
         try{
+            if(currentDay%2==0){
+            String IDNumber = "2335795";
             instance.addPersonToMinimarket(IDNumber, idType);
+            }
+            else if(currentDay%2!=0){
+                String IDNumber = "2335785";
+                instance.addPersonToMinimarket(IDNumber, idType);
+            }
             fail("No salto la excepcion.");
         }catch(IncorrectPenultimateNumberException npe){
             assertEquals("El penultimo numero de su identificacion no coincide con el mes: "+npe.getIncorrectNumber(),npe.getMessage());
