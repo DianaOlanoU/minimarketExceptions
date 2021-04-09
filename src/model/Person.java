@@ -26,10 +26,6 @@ public class Person {
         }
     }
 
-    public IDType getID() {
-        return ID;
-    }
-
     public String getIDNumber() {
         return IDNumber;
     }

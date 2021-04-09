@@ -35,12 +35,12 @@ public class Minimarket {
         
         if(idType.equalsIgnoreCase("TI")){
             count++;
-            totalAmounOfPeople(count);
+            totalAmountOfPeople(count);
             throw new IncorrectIDException(idType);
         }
         else if(currentDay%2==0 &&  penultimateNumber%2!=0 || currentDay%2!=0 &&  penultimateNumber%2==0){
             count++;
-            totalAmounOfPeople(count);
+            totalAmountOfPeople(count);
             throw new IncorrectPenultimateNumberException(penultimateNumber);
         }
         
@@ -48,12 +48,12 @@ public class Minimarket {
             if(currentDay%2==0 && penultimateNumber%2==0){
                 people.add(new Person(IDNumber,idType));
                 count++;
-                totalAmounOfPeople(count);
+                totalAmountOfPeople(count);
             }
             else if(currentDay%2!=0 && penultimateNumber%2!=0){
                 people.add(new Person(IDNumber,idType));
                 count++;
-                totalAmounOfPeople(count);
+                totalAmountOfPeople(count);
             }
         }
         else{
@@ -70,7 +70,7 @@ public class Minimarket {
         return finalNumber ;
     }
     
-    public int totalAmounOfPeople(int count){
+    public int totalAmountOfPeople(int count){
         int total = 0;
         if(count>0){
           total++;

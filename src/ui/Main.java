@@ -13,11 +13,11 @@ public class Main {
         boolean finalMenu=false;
         
         while(!finalMenu){
-            System.out.print("_____________________________________INGRESAR DATOS AL MINI MERCADO________________________________________________________\n");
+            System.out.print("_____________________________________INGRESAR OPCION DEL MINI MERCADO________________________________________________________\n");
             System.out.print("\n¿Cual opcion desea escoger?"+
                             "\n"+
                             "\nEscriba 1, si quiere registrar el ingreso de una persona"+
-                            "\nEscriba 2, si quiere saber la cantidad de personas que han intentado ingresar al mini mercado"+
+                            "\nEscriba 2, si quiere saber la cantidad de personas que han intentado ingresar al mini mercado y las que ingresaron"+
                             "\nEscriba 0, si desea salir de la aplicacion"+
                             "\nEscriba aqui: ");
                             int userOption=lector.nextInt();
