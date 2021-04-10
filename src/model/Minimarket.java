@@ -31,33 +31,33 @@ public class Minimarket {
         int currentDay =LocalDate.now().getDayOfMonth();
         char penultimateNumber=searchPenultimateNumber(IDNumber);
         Person foundPersonID=findPersonID(IDNumber);
-        String message="\nLA PERSONA FUE INGRESADA EXITOSAMENTE AL MINI MERCADO.";
+        String message="\nLA PERSONA FUE INGRESADA EXITOSAMENTE AL MINIMERCADO.";
         
         if(idType.equalsIgnoreCase("TI")){
             count++;
             totalAmountOfPeople(count);
             throw new IncorrectIDException(idType);
         }
-        else if(currentDay%2==0 &&  penultimateNumber%2!=0 || currentDay%2!=0 &&  penultimateNumber%2==0){
+        else if(currentDay%2==0 &&  penultimateNumber%2==0 || currentDay%2!=0 &&  penultimateNumber%2!=0){
             count++;
             totalAmountOfPeople(count);
             throw new IncorrectPenultimateNumberException(penultimateNumber);
         }
         
         if(foundPersonID==null){
-            if(currentDay%2==0 && penultimateNumber%2==0){
+            if(currentDay%2==0 && penultimateNumber%2!=0){
                 people.add(new Person(IDNumber,idType));
                 count++;
                 totalAmountOfPeople(count);
             }
-            else if(currentDay%2!=0 && penultimateNumber%2!=0){
+            else if(currentDay%2!=0 && penultimateNumber%2==0){
                 people.add(new Person(IDNumber,idType));
                 count++;
                 totalAmountOfPeople(count);
             }
         }
         else{
-            message="\nLO SIENTO, LA PERSONA QUE INTENTA INGRESAR YA EXISTE EN EL MINI MERCADO.";
+            message="\nLO SIENTO, LA PERSONA QUE INTENTA INGRESAR YA EXISTE EN EL MINIMERCADO.";
         }
         return message;
     }

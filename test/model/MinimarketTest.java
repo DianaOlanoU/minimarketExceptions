@@ -18,13 +18,13 @@ public class MinimarketTest {
         int currentDay =LocalDate.now().getDayOfMonth();
         String idType = "CE";
         String result ="";
-        String expResult = "\nLA PERSONA FUE INGRESADA EXITOSAMENTE AL MINI MERCADO.";
+        String expResult = "\nLA PERSONA FUE INGRESADA EXITOSAMENTE AL MINIMERCADO.";
         if(currentDay%2==0){
-            String IDNumber = "14955967885";
+            String IDNumber = "14955967895";
             result = instance.addPersonToMinimarket(IDNumber, idType);
         }
         else if(currentDay%2!=0){
-            String IDNumber = "14955967895";
+            String IDNumber = "14955967885";
             result = instance.addPersonToMinimarket(IDNumber, idType);
         }
         assertEquals(expResult, result);
@@ -55,11 +55,11 @@ public class MinimarketTest {
         String idType = "PP";
         try{
             if(currentDay%2==0){
-            String IDNumber = "2335795";
+            String IDNumber = "2335785";
             instance.addPersonToMinimarket(IDNumber, idType);
             }
             else if(currentDay%2!=0){
-                String IDNumber = "2335785";
+                String IDNumber = "2335795";
                 instance.addPersonToMinimarket(IDNumber, idType);
             }
             fail("No salto la excepcion.");

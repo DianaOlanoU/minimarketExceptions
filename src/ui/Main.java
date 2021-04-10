@@ -1,5 +1,6 @@
 
 package ui;
+
 import exceptions.IncorrectIDException;
 import exceptions.IncorrectPenultimateNumberException;
 import java.util.Scanner;
@@ -13,11 +14,11 @@ public class Main {
         boolean finalMenu=false;
         
         while(!finalMenu){
-            System.out.print("_____________________________________INGRESAR OPCION DEL MINI MERCADO________________________________________________________\n");
+            System.out.print("_____________________________________INGRESAR OPCION DEL MINiMERCADO________________________________________________________\n");
             System.out.print("\n¿Cual opcion desea escoger?"+
                             "\n"+
                             "\nEscriba 1, si quiere registrar el ingreso de una persona"+
-                            "\nEscriba 2, si quiere saber la cantidad de personas que han intentado ingresar al mini mercado y las que ingresaron"+
+                            "\nEscriba 2, si quiere saber la cantidad de personas que han intentado ingresar al minimercado y las que ingresaron"+
                             "\nEscriba 0, si desea salir de la aplicacion"+
                             "\nEscriba aqui: ");
                             int userOption=lector.nextInt();
@@ -33,7 +34,7 @@ public class Main {
                 }
                 case 1:{
                    System.out.print("\n");
-                   System.out.print("_____________________________________INGRESAR PERSONA AL MINI MERCADO___________________________________________________\n");
+                   System.out.print("_____________________________________INGRESAR PERSONA AL MINIMERCADO___________________________________________________\n");
                    accessPersonToTheMinimarket(information);   
                    System.out.print("\n");
                    break;
@@ -74,7 +75,10 @@ public class Main {
         
         try{
             System.out.println(minimarketInformation.addPersonToMinimarket(personIDNumber, IDOption));
-        }catch(IncorrectIDException | IncorrectPenultimateNumberException npe){
+        }catch(IncorrectIDException npe){
+            System.err.println(npe.getMessage());
+        }
+        catch(IncorrectPenultimateNumberException npe){
             System.err.println(npe.getMessage());
         }
     }
@@ -84,6 +88,4 @@ public class Main {
         System.out.print("La cantidad total de personas que han intentado ingresar y las que ingresaron son: "+minimarketInformation.getCount());
         System.out.print("\n");
     }
-    
-    
 }
