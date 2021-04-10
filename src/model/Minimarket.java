@@ -31,7 +31,7 @@ public class Minimarket {
         int currentDay =LocalDate.now().getDayOfMonth();
         char penultimateNumber=searchPenultimateNumber(IDNumber);
         Person foundPersonID=findPersonID(IDNumber);
-        String message="La persona fue ingresada exitosamente al mini mercado.";
+        String message="\nLA PERSONA FUE INGRESADA EXITOSAMENTE AL MINI MERCADO.";
         
         if(idType.equalsIgnoreCase("TI")){
             count++;
@@ -57,7 +57,7 @@ public class Minimarket {
             }
         }
         else{
-            message="Lo siento, la persona que intenta ingresar ya existe en el mini mercado";
+            message="\nLO SIENTO, LA PERSONA QUE INTENTA INGRESAR YA EXISTE EN EL MINI MERCADO.";
         }
         return message;
     }

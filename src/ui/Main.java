@@ -27,7 +27,7 @@ public class Main {
                 case 0:{
                    finalMenu=true;
                    System.out.print("\n");
-                   System.out.print("_____________________________________CERRANDO APLICACION________________________________________________________\n");
+                   System.out.print("_____________________________________APLICACION CERRADA________________________________________________________\n");
                    System.out.print("\n");
                    break;
                 }
@@ -51,16 +51,24 @@ public class Main {
     
     public static void accessPersonToTheMinimarket(Minimarket minimarketInformation){
         System.out.print("\n");
-        System.out.print("¿Que tipo de identificacion tiene la persona?"+
-                         "\n"+
-                         "\nEscriba TI, si es tarjeta de identidad"+
-                         "\nEscriba CC, si es cédula de ciudadanía"+
-                         "\nEscriba PP, si es pasaporte"+
-                         "\nEscriba CE, si es cédula de extranjería"+
-                         "\nEscriba aqui: ");
-        String IDOption=lector.nextLine();
-        System.out.print("\n");
+        String IDOption = null;
+        boolean repeatMenuKindOfIdentification=false;
         
+        while(!repeatMenuKindOfIdentification){
+            System.out.print("\n");
+            System.out.print("¿Que tipo de identificacion tiene la persona?"+
+                             "\n"+
+                             "\nEscriba TI, si es tarjeta de identidad"+
+                             "\nEscriba CC, si es cédula de ciudadanía"+
+                             "\nEscriba PP, si es pasaporte"+
+                             "\nEscriba CE, si es cédula de extranjería"+
+                             "\nEscriba aqui: ");
+            IDOption=lector.nextLine();
+            if(IDOption.equalsIgnoreCase("TI") || IDOption.equalsIgnoreCase("CC") || IDOption.equalsIgnoreCase("PP") || IDOption.equalsIgnoreCase("CE")){
+                repeatMenuKindOfIdentification=true;
+            }
+        }
+        System.out.print("\n");
         System.out.print("Escriba la identifiacion de la persona: ");
         String personIDNumber=lector.nextLine();
         

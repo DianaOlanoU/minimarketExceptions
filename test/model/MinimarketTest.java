@@ -18,7 +18,7 @@ public class MinimarketTest {
         int currentDay =LocalDate.now().getDayOfMonth();
         String idType = "CE";
         String result ="";
-        String expResult = "La persona fue ingresada exitosamente al mini mercado.";
+        String expResult = "\nLA PERSONA FUE INGRESADA EXITOSAMENTE AL MINI MERCADO.";
         if(currentDay%2==0){
             String IDNumber = "14955967885";
             result = instance.addPersonToMinimarket(IDNumber, idType);
@@ -43,7 +43,7 @@ public class MinimarketTest {
             instance.addPersonToMinimarket(IDNumber, idType);
             fail("No salto la excepcion.");
         }catch(IncorrectIDException npe){
-            assertEquals("El documento de identifacion no coincide con el requerido en el minimercado: "+npe.getIncorrectTI(),npe.getMessage());
+            assertEquals("EL DOCUMENTO DE IDENTIFICACIÓN NO COINCIDE CON EL REQUERIDO POR EL MINIMERCADO (CC,PP,CE): "+npe.getIncorrectTI(),npe.getMessage());
         }
     }
     
@@ -64,7 +64,7 @@ public class MinimarketTest {
             }
             fail("No salto la excepcion.");
         }catch(IncorrectPenultimateNumberException npe){
-            assertEquals("El penultimo numero de su identificacion no coincide con el mes: "+npe.getIncorrectNumber(),npe.getMessage());
+            assertEquals("EL PENÚLTIMO NUMERO DE SU IDENTIFICACIÓN NO COINCIDE CON EL DÍA ACTUAL: "+npe.getIncorrectNumber(),npe.getMessage());
         }
     }
 }
