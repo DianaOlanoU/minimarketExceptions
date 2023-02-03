@@ -31,7 +31,7 @@ public class Minimarket {
         int currentDay =LocalDate.now().getDayOfMonth();
         char penultimateNumber=searchPenultimateNumber(IDNumber);
         Person foundPersonID=findPersonID(IDNumber);
-        String message="\nLA PERSONA FUE INGRESADA EXITOSAMENTE AL MINIMERCADO.";
+        String message="\nLA PERSONA INGRESÓ EXITOSAMENTE AL MINIMERCADO.";
         
         if(idType.equalsIgnoreCase("TI")){
             count++;
